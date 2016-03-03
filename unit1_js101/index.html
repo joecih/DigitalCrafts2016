@@ -1,0 +1,158 @@
+<!DOCTYPE>
+<html>
+
+<head>
+    <title>Test Scripting</title>
+    <style>
+        body {
+            background-color: lightgrey;
+            text-align: center;
+            font-family: Verdana, Arial;
+        }
+        
+        .header {
+            height: 40px;
+        }
+        
+        .left-nav {
+            float: left;
+        }
+        
+        .right-nav {
+            float: right;
+        }
+        
+        .ticker {
+            padding: 10px;
+            border: 1px dotted darkgrey;
+            font-size: 40px;
+        }
+        
+        .num-value {
+            color: darkblue;
+        }
+        
+        input[id="delay-box"] {
+            width: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="left-nav">
+            <button onclick="runNormalMode();">Update Ticker</button>
+            <input id="tick-box" type="checkbox" name="automatic" value="">Set Auto
+        </div>
+        <div class="right-nav">
+            Delay
+            <input id="delay-box" type="number" step="100" min="200" max="5000" value="1000"> ms
+        </div>
+    </div>
+    <p></p>
+    <div class="ticker"></div>
+
+
+    <script type="text/javascript">
+        var tickObject;
+        var _delayTime = 1000; // default
+        var frontString = "Message Ticker";
+        var rearString = "is Activated!";
+
+        // Event Listener's --------------------
+        document.getElementById("tick-box").addEventListener("change", function() {
+            // console.log("Tick checked! | state: " + document.getElementById("tick-box").checked.toString());
+
+            if (document.getElementById("tick-box").checked) {
+                runAutomatically(true, getDelayTime());
+            } else {
+                runAutomatically(false);
+            }
+        });
+
+        document.getElementById("delay-box").addEventListener("change", function() {
+            var delayBox = document.getElementById("delay-box");
+            setDelayTime(delayBox.value);
+        })
+
+
+
+        function setDelayTime(value) {
+
+            if (value >= 200 && value <= 5000) {
+                _delayTime = value;
+                console.log(_delayTime);
+                window.clearInterval(tickObject);
+                runAutomatically(true, _delayTime);
+            } else {
+                document.getElementById("delay-box").value = _delayTime
+                alert("You cannot set values outside of 200ms -to- 5000ms range!");
+            }
+
+        }
+
+        function getDelayTime() {
+            return _delayTime;
+        }
+
+        function runAutomatically(state, delay) {
+
+            var delayValue = (delay === undefined) ? _delayTime : delay;
+
+            if (state) {
+                tickObject = window.setInterval(runAutoMode, delayValue);
+            } else {
+                window.clearInterval(tickObject);
+            }
+        }
+
+        function runAutoMode() {
+            clearTicker();
+            runTicker(getMessage(getRandom()));
+            //console.log("State of tickObject: " + tickObject);
+        }
+
+        function runNormalMode() {
+            clearTicker();
+
+            var tickBox = document.getElementById("tick-box");
+            tickBox.setAttribute("value", false);
+            tickBox.checked = false;
+            window.clearInterval(tickObject);
+            runTicker(getMessage(getRandom()));
+            // console.log("State of tickObject: " + tickObject);
+        }
+
+
+        function clearTicker() {
+            var tickWin = document.getElementsByClassName("ticker");
+
+            for (var i = 0; i < tickWin.length; i++) {
+                tickWin[i].innerHTML = "";
+            }
+        }
+
+        function runTicker(value) {
+            var tickWin = document.getElementsByClassName("ticker");
+
+            for (var i = 0; i < tickWin.length; i++) {
+                tickWin[i].innerHTML = value;
+            }
+        }
+
+        function getRandom() {
+            return Math.floor((Math.random() * 10) + 1);
+        }
+
+        function getMessage(num) {
+            var text = (num % 2 == 0) ? ("<font color='blue'><b>" + num + "</b></font>") : ("<font color='red'><b>" + num + "</b></font>");
+            
+            var tickBox = document.getElementById("tick-box");
+            
+            if (tickBox.checked)
+            return frontString + " #" + text + " " + rearString;
+        }
+    </script>
+</body>
+
+</html>
