@@ -2,208 +2,39 @@
 <html>
 
 <head>
-    <title>Dice Roller</title>
-    <style>
-        body {
-            text-align: center;
-            margin: 5px;
-            font-family: Arial;
-        }
-        
-        button {
-            width: 100px;
-            border: none;
-            outline: 0;
-            background-color: #1c54f5;
-            border-radius: 5px;
-            padding: 5px;
-            color: #fff;
-            font-size: 14px;
-            cursor: pointer;
-            box-shadow: 2px 2px 2px #191919;
-        }
-        
-        button:hover {
-            background-color: #537cf4;
-            ;
-        }
-        
-        img {
-            width: 100px;
-        }
-        
-        .image-message {
-            position: relative;
-            width: 80%;
-            height: 80%;
-            margin: 20px auto;
-            background: url("") 10% 10% no-repeat;
-            z-index: -1;
-            border: 1px dotted red;
-        }
-        
-        .the-dice {
-            position: absolute;
-            width: 100%;
-            bottom: 10px;
-            right: 10px;
-        }
-        
-        .the-dice img {
-            background-color: lightgrey;
-            border-radius: 10px;
-        }
-        
-        .scores {
-            position: fixed;
-            width: 100%;
-            height: 50px;
-            bottom: 0;
-            border: 1px dotted red;
-            text-align: center;
-        }
-        
-        .the-message {
-            position: absolute;
-            top: 0;
-            left: 10%;
-            right: 10%;
-            width: 80%;
-            height: 40px;
-            border: 1px dotted green;
-            z-index: 2;
-            font-size: 25px;
-        }
-        
-        #players {
-            position: absolute;
-            width: 50%;
-            height: 25px;
-            left: 25%;
-            right: 25%;
-            top: 10%;
-            border: 1px dotted green;
-        }
-        
-        #players label {
-            padding: 15px;
-        }
-        
-        .the-outcome {
-            position: absolute;
-            width: 80%;
-            height: 25px;
-            bottom: 0;
-            right: 0;
-            font-size: 40px;
-            font-family: "Courier New", Verdana;
-            color: darkred;
-            font-weight: bold;
-        }
-        /*#outcome {
-            font-size: 40px;
-            font-family: "Courier New", Verdana;
-            color: darkred;
-            font-weight: bold;
-        }*/
-    </style>
+    <title>Dragon Roller</title>
+    <link rel="stylesheet" type="text/css" href="styles/main.css" />
 </head>
 
 <body>
-    <div class="selections">
-        <button name="btn1" onclick="throwDie();">Fight !</button>
-        <button name="btn2">Flee ?</button>
+    <div class="container">
+        <div class="nav-selections">
+            <button name="btn1" onclick="throwDie();">Fight !</button>
+            <button name="btn2">Flee ?</button>
+        </div>
+
+        <div id="select-image" class="image-message">
+            <div class="the-message">
+                <p id="show-message">If you choose to Fight! You must roll a 9 or Higher! If you don't, you will be burnt to a crisp!</p>
+            </div>
+            <div id="the-fight" class="the-dice">
+                <img src="d1.gif" name="myDie1">
+                <img src="d3.gif" name="myDie2">
+            </div>
+            <div id="outcome" class="the-outcome"></div>
+        </div>
+        <div class="scores">
+            <div id="players">
+                Dragon:
+                <label></label>
+                Player:
+                <label></label>
+            </div>
+        </div>
     </div>
 
-    <div id="select-image" class="image-message">
-        <div class="the-message">
-            <p id="show-message">If you choose to Fight! You must roll a 9 or Higher! If you don't, you will be burnt to a crisp!</p>
-        </div>
-        <div id="the-fight" class="the-dice">
-            <img src="d1.gif" name="myDie1">
-            <img src="d3.gif" name="myDie2">
-        </div>
-        <div id="outcome" class="the-outcome"></div>
-    </div>
-    <div class="scores">
-        <div id="players">
-            Dragon:
-            <label></label>
-            Player:
-            <label></label>
-        </div>
-    </div>
 
-
-    <script>
-        hideImage(); // Initially
-        hideNotice();
-
-        // Button Event Listeners ------
-        var eButton = document.getElementsByTagName('button');
-        for (var i = 0; i < eButton.length; i++) {
-            eButton[i].addEventListener("click", function() {
-                if (this.name == "btn1") {
-                    // do someting for Fight!
-                }
-
-                if (this.name == "btn2") {
-                    // do something for flee?
-                    showImage('fleeing.png');
-                    showNotice("Don't be such a chicken! Fight!!!", "red");
-                }
-            });
-        };
-
-
-        // Method Calls ---------
-        function throwDie() {
-            var randomDie = Math.round(Math.random() * 5) + 1;
-            var imageName = "d" + randomDie + ".gif";
-            document.images['myDie1'].src = imageName;
-
-            var randomDie2 = Math.round(Math.random() * 5) + 1;
-            var imageName2 = "d" + randomDie2 + ".gif";
-            document.images['myDie2'].src = imageName2;
-
-            console.log("randomDie val: " + randomDie + " | randomDie2 val: " + randomDie2 + " | total: " + (randomDie + randomDie2));
-            displayDiceOutcome((randomDie + randomDie2));
-
-        }
-
-
-        function showImage(_img) {
-            var changeImage = document.getElementById('select-image');
-            changeImage.style.backgroundImage = "url('" + _img + "')";
-
-        }
-
-        function hideImage() {
-            var changeImage = document.getElementById('select-image');
-            changeImage.style.backgroundImage = "url('')";
-        }
-
-        function hideNotice() {
-            var notice = document.getElementById('show-message');
-            notice.innerHTML = "";
-        }
-
-        function showNotice(_message, _mcolor) {
-            _mcolor = (mcolor == "") ? "black" : _mcolor; // Set default
-            console.log("mcolor: " + _mcolor);
-            var notice = document.getElementById('show-message');
-            notice.innerHTML = "<font style='color:" + _mcolor + "'>" + _message + "</font>"; // ? Should add styling here ??
-        }
-
-        function displayScore(_value) {
-
-        }
-
-        function displayDiceOutcome(_value) {
-            var outcome = document.getElementById("outcome");
-            outcome.innerHTML = _value; // TODO: Add formatting and styling.
-        }
-    </script>
+    <script src="scripts/app.js"></script>
 </body>
 
 </html>
