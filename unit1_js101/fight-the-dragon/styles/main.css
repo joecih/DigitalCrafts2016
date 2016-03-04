@@ -2,17 +2,23 @@ body {
     margin: 0;
 }
 
+#big-image {
+    background: url("") 50% 50% no-repeat;
+    background-size: 100%;
+}
+
 .container {
     text-align: center;
-    margin: 5px;
+    margin: 0;
     font-family: Arial;
+    max-width: 960px;
 }
 
 button {
     width: 100px;
     border: none;
     outline: 0;
-    background-color: #1c54f5;
+    background-color: darkred;
     border-radius: 5px;
     padding: 5px;
     color: #fff;
@@ -22,7 +28,7 @@ button {
 }
 
 button:hover {
-    background-color: #537cf4;
+    background-color: indianred;
 }
 
 img {
@@ -31,19 +37,38 @@ img {
 
 .nav-selections {
     position: fixed;
-    height: 50px;
+    height: 120px;
     width: 100%;
+    /*border: 1px dotted red;*/
+    background-color: lightgrey;
+    border-radius: 0px 0px 15px 15px;
+    box-shadow: 2px 2px 2px #191919;
+}
+
+.logo {
+    /*float: left;*/
+    display: inline-block;
+    width: 120px;
+    height: 100px;
+    background: url("../images/tribal-dragon-vert.png") 50% 50% no-repeat;
+    background-size: 80px;
+    /*border: 1px dotted green;*/
+}
+
+.options {
+    /*border: 1px dotted blue;*/
 }
 
 .image-message {
     position: fixed;
     width: 80%;
-    height: 80%;
-    top: 50px;
+    height: 66%;
+    top: 140px;
     left: 10%;
     right: 10%;
     margin: auto;
     background: url("") 10% 10% no-repeat;
+    background-size: 50%;
     z-index: -1;
     border: 1px dotted red;
 }

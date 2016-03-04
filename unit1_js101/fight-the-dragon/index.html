@@ -6,11 +6,15 @@
     <link rel="stylesheet" type="text/css" href="styles/main.css" />
 </head>
 
-<body>
+<body id="big-image">
     <div class="container">
         <div class="nav-selections">
-            <button name="btn1" onclick="throwDie();">Fight !</button>
-            <button name="btn2">Flee ?</button>
+            
+            <div class="options">
+                <button name="btn1" onclick="throwDie();">Fight !</button>
+                <div class="logo"></div>
+                <button name="btn2">Flee ?</button>
+            </div>
         </div>
 
         <div id="select-image" class="image-message">
@@ -18,8 +22,8 @@
                 <p id="show-message">If you choose to Fight! You must roll a 9 or Higher! If you don't, you will be burnt to a crisp!</p>
             </div>
             <div id="the-fight" class="the-dice">
-                <img src="d1.gif" name="myDie1">
-                <img src="d3.gif" name="myDie2">
+                <img src="images/d1.gif" name="myDie1">
+                <img src="images/d3.gif" name="myDie2">
             </div>
             <div id="outcome" class="the-outcome"></div>
         </div>
