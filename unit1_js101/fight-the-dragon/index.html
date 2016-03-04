@@ -37,7 +37,7 @@
             width: 80%;
             height: 80%;
             margin: 20px auto;
-            background: url("dragon.png") 10% 10% no-repeat;
+            background: url("") 10% 10% no-repeat;
             z-index: -1;
             border: 1px dotted red;
         }
@@ -62,6 +62,19 @@
             border: 1px dotted red;
             text-align: center;
         }
+        
+        .the-message {
+            position: absolute;
+            top: 0;
+            left: 10%;
+            right: 10%;
+            width: 80%;
+            height: 40px;
+            border: 1px dotted green;
+            z-index: 2;
+            font-size: 25px;
+        }
+        
         #players {
             position: absolute;
             width: 50%;
@@ -71,30 +84,53 @@
             top: 10%;
             border: 1px dotted green;
         }
+        
         #players label {
             padding: 15px;
         }
+        
+        .the-outcome {
+            position: absolute;
+            width: 80%;
+            height: 25px;
+            bottom: 0;
+            right: 0;
+            font-size: 40px;
+            font-family: "Courier New", Verdana;
+            color: darkred;
+            font-weight: bold;
+        }
+        /*#outcome {
+            font-size: 40px;
+            font-family: "Courier New", Verdana;
+            color: darkred;
+            font-weight: bold;
+        }*/
     </style>
 </head>
 
 <body>
     <div class="selections">
         <button name="btn1" onclick="throwDie();">Fight !</button>
-        <button name="btn2" onclick="flee();">Flee ?</button>
+        <button name="btn2">Flee ?</button>
     </div>
 
     <div id="select-image" class="image-message">
-        <p id="show-message">If you choose to Fight! You must roll a 9 or Higher! If you don't, you will be burnt to a crisp!</p>
+        <div class="the-message">
+            <p id="show-message">If you choose to Fight! You must roll a 9 or Higher! If you don't, you will be burnt to a crisp!</p>
+        </div>
         <div id="the-fight" class="the-dice">
             <img src="d1.gif" name="myDie1">
             <img src="d3.gif" name="myDie2">
-            <div id="outcome"></div>
         </div>
+        <div id="outcome" class="the-outcome"></div>
     </div>
     <div class="scores">
         <div id="players">
-            Dragon: <label></label>
-            Player: <label></label>
+            Dragon:
+            <label></label>
+            Player:
+            <label></label>
         </div>
     </div>
 
@@ -114,7 +150,7 @@
                 if (this.name == "btn2") {
                     // do something for flee?
                     showImage('fleeing.png');
-                    showNotice("Don't be such a chicken! Fight!!!");
+                    showNotice("Don't be such a chicken! Fight!!!", "red");
                 }
             });
         };
@@ -131,14 +167,14 @@
             document.images['myDie2'].src = imageName2;
 
             console.log("randomDie val: " + randomDie + " | randomDie2 val: " + randomDie2 + " | total: " + (randomDie + randomDie2));
-
+            displayDiceOutcome((randomDie + randomDie2));
 
         }
-        
 
-        function showImage(img) {
+
+        function showImage(_img) {
             var changeImage = document.getElementById('select-image');
-            changeImage.style.backgroundImage = "url('" + img + "')";
+            changeImage.style.backgroundImage = "url('" + _img + "')";
 
         }
 
@@ -152,9 +188,20 @@
             notice.innerHTML = "";
         }
 
-        function showNotice(message) {
+        function showNotice(_message, _mcolor) {
+            _mcolor = (mcolor == "") ? "black" : _mcolor; // Set default
+            console.log("mcolor: " + _mcolor);
             var notice = document.getElementById('show-message');
-            notice.innerHTML = message; // ? Should add styling here ??
+            notice.innerHTML = "<font style='color:" + _mcolor + "'>" + _message + "</font>"; // ? Should add styling here ??
+        }
+
+        function displayScore(_value) {
+
+        }
+
+        function displayDiceOutcome(_value) {
+            var outcome = document.getElementById("outcome");
+            outcome.innerHTML = _value; // TODO: Add formatting and styling.
         }
     </script>
 </body>
