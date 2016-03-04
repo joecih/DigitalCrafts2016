@@ -41,7 +41,7 @@ img {
     width: 100%;
     /*border: 1px dotted red;*/
     background-color: lightgrey;
-    border-radius: 0px 0px 15px 15px;
+    border-radius: 0px 0px 25px 25px;
     box-shadow: 2px 2px 2px #191919;
 }
 
@@ -49,9 +49,9 @@ img {
     /*float: left;*/
     display: inline-block;
     width: 120px;
-    height: 100px;
+    height: 80px;
     background: url("../images/tribal-dragon-vert.png") 50% 50% no-repeat;
-    background-size: 80px;
+    background-size: 60px;
     /*border: 1px dotted green;*/
 }
 
