@@ -5,13 +5,17 @@ hideNotice();
 var eButton = document.getElementsByTagName('button');
 for (var i = 0; i < eButton.length; i++) {
     eButton[i].addEventListener("click", function() {
+
+        hideImage();
+        hideNotice();
+
         if (this.name == "btn1") {
-            // do someting for Fight!
+            throwDie();
         }
 
         if (this.name == "btn2") {
             // do something for flee?
-            showImage('select-image','fleeing.png');
+            showImage('fleeing.png');
             showNotice("Don't be such a chicken! Fight!!!", "red");
         }
     });
@@ -27,13 +31,13 @@ function throwDie() {
     var randomDie2 = Math.round(Math.random() * 5) + 1;
     var imageName2 = "d" + randomDie2 + ".gif";
     document.images['myDie2'].src = "images/" + imageName2;
-    
+
     var totalDie = (randomDie + randomDie2);
 
     //console.log("randomDie val: " + randomDie + " | randomDie2 val: " + randomDie2 + " | total: " + totalDie);
     displayDiceOutcome(totalDie);
-    
-    if ( totalDie >= 9 ) {
+
+    if (totalDie >= 9) {
         // Set player score
         hideImage();
         hideNotice();
@@ -41,24 +45,33 @@ function throwDie() {
         // you got burned!
         hideImage();
         hideNotice();
-        showImage("big-image", "big-dragon.jpg");
+        showImage("big-dragon.jpg");
         showNotice("Deebo! You should have been bobbin and weavin!", "black", "40px");
     }
 
 }
 
 
-function showImage(_obj, _img) {
+function showImage(_img) {
     _img = (_img == "") ? "" : _img;
-    // _obj = (_obj == "") ? "" : _obj; REQUIRED
-     
-    var changeImage = document.getElementById(_obj);
-    changeImage.style.backgroundImage = "url('images/" + _img + "')";
+
+    var changeImage = document.getElementById('big-image');
+    
+    if (_img == "fleeing.png") {
+        changeImage.style.backgroundSize = '80px';
+    }else {
+        changeImage.style.backgroundSize = '20% 20%';
+    }
+    
+    changeImage.style.background = "url('images/" + _img + "')";
+    changeImage.style.backgroundRepeat = "no-repeat"
+    // changeImage.style.backgroundPosition = "center";
+    
 
 }
 
 function hideImage() {
-    var changeImage = document.getElementById('select-image');
+    var changeImage = document.getElementById('big-image');
     changeImage.style.backgroundImage = "url('')";
 }
 
@@ -70,8 +83,8 @@ function hideNotice() {
 function showNotice(_message, _mcolor, _fontSize) {
     _mcolor = (_mcolor == "") ? "black" : _mcolor; // Set default
     _fontSize = (_fontSize == "") ? "25px" : _fontSize;
-    
-    
+
+
     // console.log("mcolor: " + _mcolor);
     var notice = document.getElementById('show-message');
     notice.innerHTML = "<font style='color:" + _mcolor + "; font-size:" + _fontSize + "'>" + _message + "</font>"; // ? Should add styling here ??

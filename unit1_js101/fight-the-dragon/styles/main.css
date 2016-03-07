@@ -43,6 +43,7 @@ img {
     background-color: lightgrey;
     border-radius: 0px 0px 25px 25px;
     box-shadow: 2px 2px 2px #191919;
+    opacity: 0.8;
 }
 
 .logo {
@@ -70,7 +71,7 @@ img {
     background: url("") 10% 10% no-repeat;
     background-size: 50%;
     z-index: -1;
-    border: 1px dotted red;
+    /*border: 1px dotted red;*/
 }
 
 .the-dice {
@@ -90,18 +91,18 @@ img {
     width: 100%;
     height: 50px;
     bottom: 0;
-    border: 1px dotted red;
+    /*border: 1px dotted red;*/
     text-align: center;
 }
 
-.the-message {
+.the-message p{
     position: absolute;
     top: 0;
     left: 10%;
     right: 10%;
     width: 80%;
     height: 40px;
-    border: 1px dotted green;
+    /*border: 1px dotted green;*/
     z-index: 2;
     font-size: 25px;
 }
