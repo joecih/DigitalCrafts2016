@@ -58,14 +58,19 @@ function showImage(_img) {
     var changeImage = document.getElementById('big-image');
     
     if (_img == "fleeing.png") {
-        changeImage.style.backgroundSize = '80px';
+        changeImage.style.background = "url('images/" + _img + "')";
+        changeImage.style.backgroundSize = '280px';
+        changeImage.style.backgroundPosition = "right";
+        // changeImage.style.paddingRight = "200px";
     }else {
-        changeImage.style.backgroundSize = '20% 20%';
+       changeImage.style.background = "url('images/" + _img + "')";
+        //changeImage.style.backgroundSize = '100%';
+        changeImage.style.backgroundPosition = "center";
     }
     
-    changeImage.style.background = "url('images/" + _img + "')";
+    
     changeImage.style.backgroundRepeat = "no-repeat"
-    // changeImage.style.backgroundPosition = "center";
+    
     
 
 }

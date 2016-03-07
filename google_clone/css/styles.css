@@ -1,0 +1,230 @@
+body {
+    font-family: Arial;
+    font-size: 14px;
+}
+
+#header {
+    float: right;
+    /*border: 1px dotted red;*/
+    height: 30px;
+    line-height: 30px;
+    margin: 10px 10px 0 0;
+    position: relative;
+}
+
+#app-icons {
+    position: absolute;
+    width: 92%;
+    top: 70px;
+    right: 5px;
+    padding: 10px;
+    border: 1px solid darkgrey;
+    border-radius: 10px;
+    box-shadow: 1px 2px 12px darkgrey;
+    text-align: center;
+    line-height: 128px;
+    z-index: 2;
+    background-color: #f8ebd3;
+    display: none;
+}
+
+
+/*#app-icons:hover {
+    border: 1px dotted red;
+}*/
+
+#app-icons a {
+    margin: 15px 2px;
+}
+
+.arrow {
+    width: 0px;
+    height: 0px;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 25px solid darkgrey;
+    border-top: 25px solid transparent;
+    top: -50px;
+    left: 120px;
+    position: absolute;
+    z-index: 1;
+}
+
+.back-arrow {
+    width: 0px;
+    height: 0px;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 25px solid #f8ebd3;
+    border-top: 25px solid transparent;
+    top: -48px;
+    left: 120px;
+    position: absolute;
+    z-index: 1;
+}
+
+
+/*
+#app-icons:before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  height: 0;
+  width: 0;
+  border: 28px solid transparent;
+  border-bottom-color: #f8ebd3;
+  /*margin-left: -28px;
+}
+
+/*#app-icons:after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  height: 40px;
+  width: 40px;
+  background-color: #f8ebd3;
+  margin-left: 8px;
+  margin-bottom: -21px;
+  z-index: 3;
+  box-shadow: -1px -2px 1px darkgrey;
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}*/
+
+.icon {
+    height: 64px;
+    width: 64px;
+    background: url('https://ssl.gstatic.com/gb/images/v2_0bc49e87.png') no-repeat;
+    background-size: 92px 2541px;
+    float: left;
+}
+
+.icon:nth-child(1) {
+    background-position: 0 -938px;
+}
+
+.icon:nth-child(2) {
+    background-position: -17px -207px;
+}
+
+.icon:nth-child(3) {
+    background-position: 0 0;
+}
+
+.icon:nth-child(4) {
+    background-position: 0 -450px;
+}
+
+.icon:nth-child(5) {
+    background-position: 0 -1779px;
+}
+
+.icon:nth-child(6) {
+    background-position: 0 -1990px;
+}
+
+.icon:nth-child(7) {
+    background-position: 0 -1710px;
+}
+
+.icon:nth-child(8) {
+    background-position: 0 -138px;
+}
+
+.icon:nth-child(9) {
+    background-position: 0 -2059px;
+}
+
+/*.icon:hover {
+    border: 1px dotted blue;
+}*/
+
+.header-item {
+    float: left;
+    list-style-type: none;
+    margin-right: 10px;
+}
+
+.header-item.grid {
+    background: url('https://ssl.gstatic.com/gb/images/v2_0bc49e87.png') no-repeat;
+    background-position: -41px -316px;
+    background-size: 92px 2541px;
+    opacity: .55;
+    margin: 5px;
+    padding: 0 2px;
+    text-align: center;
+    box-sizing: border-box;
+    /*border-radius: 50%;*/
+    height: 20px;
+    width: 20px;
+}
+
+.header-item.bell {
+    background: url('https://ssl.gstatic.com/gb/images/v2_0bc49e87.png') no-repeat;
+    background-position: -35px -1675px;
+    background-size: 92px 2541px;
+    background-color: #aaa;
+    margin: 5px;
+    padding: 0 2px;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+}
+
+.header-item.letter {
+    background: url('url(//lh6.googleusercontent.com/-w13lsiUtsjU/AAAAAAAAAAI/AAAAAAAAAAA/AMW9IgdvqxncH06H4fMFdo-Lc9OELgGYgA/s64-c-mo/photo.jpg)');
+    height: 30px;
+    width: 30px;
+    background-color: #f77056;
+    border-radius: 50%;
+    text-align: center;
+}
+
+#google-wrapper {
+    /*border: 1px dotted red;*/
+}
+
+#google-logo {
+    height: 160px;
+    text-align: center;
+    margin: auto;
+    padding-top: 120px;
+    /*border: 1px dotted blue;*/
+}
+
+#search-form {
+    text-align: center;
+    position: relative;
+    max-width: 670px;
+    margin: auto;
+    /*border: 1px dotted green;*/
+}
+
+input {
+    width: 630px;
+    height: 36px;
+    font-size: 18px;
+    padding-left: 5px;
+}
+
+#mic {
+    position: absolute;
+    right: 24px;
+    top: 3px;
+}
+
+#mic img {
+    width: 28px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

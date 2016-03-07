@@ -1,0 +1,74 @@
+body {
+    margin: auto;
+}
+
+.wrapper {
+    position: fixed;
+    width: 100%;
+    margin: auto;
+    height: 100px;
+    text-align: center;
+    border: 1px dashed deeppink;
+}
+
+.container {
+    position: relative;
+    top:35px;
+    left: 10%;
+    right: 10%;
+    width: 960px;
+    padding-bottom: 25%;
+    /*border: 3px dashed blue;*/
+}
+
+/*.text {
+    margin: auto;
+}*/
+
+/*h1 {
+    text-align: center;
+    font-size: 75px;
+}*/
+
+/*.container button {
+    box-sizing: border-box;
+    width: 33.25%;
+    height: 100%;
+    float: left;
+}*/
+
+.box {
+    box-sizing: border-box;
+    width: 33.3%;
+    height: 100%;
+    float: left;
+    border: 2px dotted green;
+}
+
+#row-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    /*border: 1px dashed red;*/
+}
+
+#row-2 {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width:100%;
+    height: 100%;
+    /*border: 1px dashed red;  */
+}
+
+#row-3 {
+    position: absolute;
+    top: 200%;
+    left: 0;
+    width:100%;
+    height: 100%;
+    /*border: 1px dashed red;*/
+}
+
