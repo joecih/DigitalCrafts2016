@@ -9,7 +9,7 @@
 <body>
 
     <div class="navbar">
-        <div class="text">
+        <div class="header">
             <h1>TIC TAC TOE</h1>
         </div>
         <div id="menu" onclick="showMenu();"><img src="images/menu1.png">
@@ -18,15 +18,22 @@
             <ul>
                 <li id="list-item1">
                     Player 1 Name: 
-                    <input id="player2-name" class="common-inputs" type="text" placeholder="eg. Joshua" onchange="updatePlayer();">
+                    <input id="player1-name" class="common-inputs" type="text" placeholder="eg. Joshua"
+                    onmousedown="updatePlaceHolderMessage(this);"
+                    onfocusout="updatePlaceHolderMessage(this, 'eg, Joshua');">
                 </li>
                 <li id="list-item2">
-                    Add Player 2
-                    <input id="player-tick" type="checkbox" onchange="updatePlayer();">
-                    <input id="player1-name" class="common-inputs" type="text" placeholder="eg. Joshua" onchange="update2ndPlayerField();">
+                    <input id="player-tick" type="checkbox"
+                        onchange="updatePlayer2();">
+                    Add Player 2:
+                    <input id="player2-name" class="common-inputs" type="text"
+                        placeholder="Default: Computer"
+                        onmousedown="updatePlaceHolderMessage(this);"
+                        onfocusout="updatePlaceHolderMessage(this, 'Default: Computer');">
                 </li>
-
-                <li id="item3"></li>
+                <li id="list-item3">
+                    <button id="save-btn" class="btn btn-small" onclick="saveConfiguration();">Save</button>
+                </li>
             </ul>
         </div>
     </div>
