@@ -10,65 +10,56 @@
 
     <div class="navbar">
         <div class="text">
-            <h2>TIC TAC TOE</h2>
+            <h1>TIC TAC TOE</h1>
+        </div>
+        <div id="menu" onclick="showMenu();"><img src="images/menu1.png">
+        </div>
+        <div id="drop-down-menu">
+            <ul>
+                <li id="list-item1">
+                    Player 1 Name: 
+                    <input id="player2-name" class="common-inputs" type="text" placeholder="eg. Joshua" onchange="updatePlayer();">
+                </li>
+                <li id="list-item2">
+                    Add Player 2
+                    <input id="player-tick" type="checkbox" onchange="updatePlayer();">
+                    <input id="player1-name" class="common-inputs" type="text" placeholder="eg. Joshua" onchange="update2ndPlayerField();">
+                </li>
+
+                <li id="item3"></li>
+            </ul>
         </div>
     </div>
     <div id="board-outer" class="center">
         <!--<div class="back-layer">-->
         <div id="row-1" class="rows">
-            <div class="box" id="box-one">x</div>
-            <div class="box" id="box-two">x</div>
-            <div class="box" id="box-three">x</div>
+            <div class="box" id="b1" onclick="addSelection(this);"></div>
+            <div class="box" id="b2" onclick="addSelection(this);"></div>
+            <div class="box" id="b3" onclick="addSelection(this);"></div>
         </div>
         <div id="row-2" class="rows">
-            <div class="box" id="box-four">x</div>
-            <div class="box" id="box-five">x</div>
-            <div class="box" id="box-six">x</div>
+            <div class="box" id="b4" onclick="addSelection(this);"></div>
+            <div class="box" id="b5" onclick="addSelection(this);"></div>
+            <div class="box" id="b6" onclick="addSelection(this);"></div>
         </div>
         <div id="row-3" class="rows">
-            <div class="box" id="box-seven">x</div>
-            <div class="box" id="box-eight">x</div>
-            <div class="box" id="box-nine">x</div>
+            <div class="box" id="b7" onclick="addSelection(this);"></div>
+            <div class="box" id="b8" onclick="addSelection(this);"></div>
+            <div class="box" id="b9" onclick="addSelection(this);"></div>
         </div>
-        <!--</div>-->
-        <!--<div id="row-1" class="rows">
-
-            </div>-->
-
-        <!--<div id="row-2" class="rows">
-                <div class="box" id="box-four">x</div>
-                <div class="box" id="box-five">x</div>
-                <div class="box" id="box-six">x</div>
-            </div>
-
-            <div id="row-3" class="rows">
-                <div class="box" id="box-seven">x</div>
-                <div class="box" id="box-eight">x</div>
-                <div class="box" id="box-nine">x</div>
-            </div>-->
-
-        <!--<table id="board">
-            <tr class="row">
-                <td id="a1"></td>
-                <td id="a2"></td>
-                <td id="a3"></td>
-            </tr>
-            <tr class="row">
-                <td id="b1"></td>
-                <td id="b2"></td>
-                <td id="b3"></td>
-            </tr>
-            <tr class="row">
-                <td id="c1"></td>
-                <td id="c2"></td>
-                <td id="c3"></td>
-            </tr>
-        </table>-->
-
-
-
+    </div>
+    <div class="footer">
+        <div id="player1" class="players">
+            <span id="player1-score-label">Player 1</span>
+            <input id="player1-score" type="text" class="common-inputs" placeholder="Score" readonly>
+        </div>
+        <div id="player2" class="players">
+            <span id="player2-score-label">Computer</span>
+            <input id="player2-score" type="text" class="common-inputs" placeholder="Score" readonly>
+        </div>
     </div>
 
+    <script src="js/app.js"></script>
 </body>
 
 </html>

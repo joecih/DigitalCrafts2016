@@ -1,5 +1,19 @@
 body {
     margin: auto;
+    height: 100vh;
+    /*border: 1px dashed red;
+    background: linear-gradient(to top, lightblue, white) no-repeat;*/
+}
+
+h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 5px;
+}
+
+li {
+    list-style-type: none;
+    padding: 5px;
+    font-family: Courier New, Courier, monospace;
 }
 
 .navbar {
@@ -8,8 +22,66 @@ body {
     height: 80px;
     margin: auto;
     text-align: center;
-    border: 1px dashed deeppink;
-    background-color: darkkhaki;
+    /*border: 1px dashed deeppink;*/
+    background-color: dodgerblue;
+    border-radius: 0px 0px 25px 25px;
+    box-shadow: 2px 2px 2px #191919;
+    z-index: 2;
+}
+
+.footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    background-color: dodgerblue;
+}
+
+#menu {
+    float: right;
+    margin: 20px;
+}
+#menu img {
+    width: 42px;
+}
+#menu img:hover {
+    cursor: pointer;
+}
+
+#drop-down-menu {
+    position: absolute;
+    width: 300px;
+    height: 100%;
+    top: 70px;
+    right: 25px;
+    border: 1px solid darkgrey;
+    border-radius: 10px;
+    box-shadow: 1px 1px 12px black;
+    text-align: center;
+    z-index: 3;
+    background-color: orange;
+    display: none;
+}
+
+#drop-down-menu li {
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
+    padding: 2px;
+    /*border: 1px dotted white;*/
+}
+
+
+#list-item2 {
+    top: 40px;
+}
+
+.text {
+    position: absolute;
+    top: 0;
+    margin: auto;
+    left: 25%;
+    right: 25%;
 }
 
 .center {
@@ -21,40 +93,79 @@ body {
     margin: auto;
     /*border: 1px dashed red;*/
     background-color: black;
+    z-index: 1;
+    cursor: pointer;
+    /*box-shadow: 2px 2px 4px black;*/
 }
 
-/*.back-layer {
-    position: absolute;
-    top: 0;
-    height: 0;
-    padding-bottom: 50%;
-    width: 100%;
-    border: 2px dotted darkorange;
-}*/
+.players {
+    font-size: 20px;
+    font-family: Geneva, Tahoma, sans-serif;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#player1 {
+    float:left;
+}
+#player2 {
+    float: right;
+}
 
+.common-inputs {
+    width: 100px;
+    height: 20px;
+    border-radius: 5px;
+    text-align: center;
+    border: 0;
+    /*border: 1px dotted red;*/
+    box-shadow: -1px -1px 4px black;
+    background-color: lightgoldenrodyellow;
+}
+
+input[type=checkbox] {
+    zoom: 1.5;
+}
 
 .box {
     position: absolute;
     width: 32%;
     height: 100%;
-    /*border: 1px dashed green;*/
     text-align: center;
     background-color: white;
+    font-size: 100px;
+    /*border: 1px dotted blue;*/
+}
+.box:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
 }
 
-#box-one, #box-four, #box-seven {
-  top: 0;
-  left: 0;   
+#b1,
+#b4,
+#b7 {
+    top: 0;
+    left: 0;
+    /*border: 1px dashed red;*/
 }
-#box-two, #box-five, #box-eight {
-   top: 0;
-   left: 35%;
+
+#b2,
+#b5,
+#b8 {
+    top: 0;
+    left: 35%;
+    /*border: 1px dashed red;*/
 }
-#box-three, #box-six, #box-nine {
+
+#b3,
+#b6,
+#b9 {
     top: 0;
     left: 70%;
+    /*border: 1px dashed red;*/
 }
-
 
 #row-1 {
     position: absolute;
@@ -70,7 +181,7 @@ body {
     top: 45%;
     height: 40%;
     width: 100%;
-    overflow: hidden; 
+    overflow: hidden;
     /*border: 1px dotted yellow;*/
 }
 
@@ -79,49 +190,21 @@ body {
     top: 90%;
     height: 40%;
     width: 100%;
-    overflow: hidden; 
+    overflow: hidden;
     /*border: 1px dotted yellow;*/
     background-color: black;
-
-/* BOARD STYLES */
-
-#board-outer {
-    /*height: 350px;
-    width: 350px;
-    background-color: none;
-    overflow: hidden;*/
 }
 
-/*#board {
-    position: absolute;
-    width: 354px;
-    height: 354px;
-    background-color: none;
-    border-spacing: 0;
-    margin-left: -2px;
-    margin-top: -2px;
+@media screen and (min-width: 1100px ) {
+    .center {
+        width: 52%;
+        padding-bottom: 31%;
+    }
 }
 
-td {
-    height: 116px;
-    width: 116px;
-    text-align: center;
-    font-family: sans-serif;
-    font-size: 40pt;
-    border-collapse: collapse;
-    border: 2px solid black;
-    text-transform: uppercase;
-    color: #999999;
-}
-
-.x {
-    width: 100%;
-    height: 100%;
-    background-color: blue;
-}
-
-.o {
-    width: 100%;
-    height: 100%;
-    background-color: red;
+/*@media screen and (min-width: 1200px ) {
+    .center {
+        width: 52%;
+        padding-bottom: 30%;
+    }
 }*/
