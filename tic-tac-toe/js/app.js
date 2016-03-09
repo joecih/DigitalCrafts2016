@@ -8,13 +8,13 @@ var winners = [
 ];
 
 var configApp = {
-    'firstPlayer': 'Player 1',
-    'secondPlayer': 'Computer',
+    player1name: 'Player 1',
+    player2name: 'Computer'
 }
 
 var whosTurn = 1;
 updatePlayer2();
-initSessionConfig();
+//initSessionConfig();
 
 function addSelection(who) {
 
@@ -41,42 +41,53 @@ function showMenu() {
     }
 }
 
-function updatePlayer1() {
-    var ePlayer1Name = document.getElementById("player1-name");
-    var ePlayer1ScoreLabel = document.getElementById("player1-score-label");
-    // configApp.firstPlayer = ePlayer1Name.value;
+function sessionVariableValue(_Name) {
+    var sess = window.sessionStorage;
     
-    updatePlayerNameLabels(ePlayer1ScoreLabel, configApp.firstPlayer);
+    for ( key in sess ) {
+
+        if ( key === _Name ) {
+            // Check session variable, if empty use the default;
+            return (sess.getItem(key) === '') ? configApp[key] : sess.getItem(key);
+        }
+    }
+    
+    return -1;
+    
+}
+
+function updatePlayer1() {
+    var ePlayer1ScoreLabel = document.getElementById("player1-score-label");
+    updatePlayerNameLabels(ePlayer1ScoreLabel, sessionVariableValue('player1name'));
 }
 
 function updatePlayer2() {
     var eTick = document.getElementById("player-tick");
-    var ePlayer2Name = document.getElementById("player2-name");
+    var ePlayer2Name = document.getElementById("player2name");
+    var ePlayer2ScoreLabel = document.getElementById("player2-score-label");
 
     try {
         if (eTick.checked) {
             ePlayer2Name.disabled = false;
             ePlayer2Name.style.backgroundColor = "lightgoldenrodyellow";
             ePlayer2Name.style.color = "black";
-
-            if (eTick.checked && ePlayer2Name.value == "") throw "No name was given for the 2nd player!";
+            updatePlayerNameLabels(ePlayer2ScoreLabel, sessionVariableValue('player2name'));
+            
+            //if (eTick.checked && ePlayer2Name.value == "") throw "No name was given for the 2nd player!";
         } else {
             ePlayer2Name.disabled = true;
             ePlayer2Name.style.backgroundColor = "lightgrey";
             ePlayer2Name.style.color = "white";
-            updatePlaceHolderInput(ePlayer2Name, 'Default: Computer');
+            
+           
+            updatePlaceHolderInput(ePlayer2Name, sessionVariableValue('player2name'));
         }
     } catch (e) {
-        alert("[Warning] : " + e);
+        //alert("[Warning] : " + e);
     }
 
 }
 
-// function updatePlayerNames() {
-//     var eInputName = document.getElementById("player-name");
-//     var ePlayer1Name = document.getElementById("player1-name");
-//     var ePlayer2Name = document.getElementById("player2-name");
-// }
 
 function updatePlaceHolderMessage(_obj, message) {
     message = (message == undefined) ? "" : message;  
@@ -88,28 +99,51 @@ function updatePlayerNameLabels(_obj, message) {
     _obj.innerHTML = message;
 }
 
+function getPlayerNameLabel(_obj) {
+    return _obj.innerHTML;
+}
+
 function initSessionConfig() {
     for ( var key in configApp ) {
          window.sessionStorage.setItem(key, configApp[key]);
     }
 }
 
-function updateAppConfigItem(_key, _value) {
-    try {
+// Saves configuration to the open session ONLY!
+function saveConfiguration() {
+
+    var everyID = document.querySelectorAll("input[id*='play']");
+    for (var i=0; i < everyID.length; i++) {
+        console.log(everyID[i].id);
         for ( var key in configApp ) {
-            
-            console.log("Key: " + key);
-            if ( key.toString() == _key ) {
-                configApp[key] = _value;
-            } else { throw "Key value: " + _key + " is invalid!"}
-        }        
-    } catch(e) {
-        console.log("[ERROR] : " + e);
+            if ( key == everyID[i].id ) {
+                var item = document.getElementById(key).value;
+                configApp[key] = (item != '') ? item : configApp[key];
+                break;
+            }
+        }
     }
+    
+    initSessionConfig();
+    updatePlayer1();
+    updatePlayer2();
 }
 
-function saveConfiguration() {
-    updateAppConfigItem('firstPlayer', document.getElementById("player1-name").value);
-    updateAppConfigItem('secondPlayer', document.getElementById("player2-name").value);
-}
+// function updateAppConfigObject(_name, _value) {
+//     try {
+//         for ( var key in configApp ) {
+
+//             if ( key == _name ) {
+//                 configApp[key] = _value;
+//                 break;
+//             } else {
+//                 // throw "Key value: '" + key + "' is invalid!";
+//             }
+//         }        
+//     } catch(e) {
+//         console.log("[ERROR] : " + e);
+//     }
+// }
+
+
 
