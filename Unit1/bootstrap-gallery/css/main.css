@@ -88,3 +88,12 @@ img {
     top: 8px;
     right: 20px;
 }
+
+@media screen and (max-width: 480px) {
+    .col-xs-6 {
+        width: 100%;
+    }
+    #image-bay {
+        top: 40%;
+    }
+}
