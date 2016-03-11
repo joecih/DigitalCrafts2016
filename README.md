@@ -1,12 +1,10 @@
 
 ![alt text][logo]
  
-[logo]: http://www.digitalcrafts.com/sites/all/themes/digitalcrafts/images/digitalcrafts-site-logo.png "Digital Crafts"
-
-# Digital Crafts
+[logo]: http://photos1.meetupstatic.com/photos/event/d/0/a/e/600_438293422.jpeg "Digital Crafts"
 
 
-> *A 16-week immersive boot-camp for coding soldiers!*
+### *A 16-week immersive boot-camp for coding soldiers!*
 
 > DigitalCrafts is an Accelerated Learning Program (more affectionately known as a "code school" or "coding bootcamp") headquartered in Atlanta, GA.  Our flagship course is a 16 Week Immersive Bootcamp transforming beginners into full-stack web developers with cutting edge skill sets, polished portfolios, interview training, and on-going career support. We also offer an iOS evening class that is available to part-time and immersive students.
 
