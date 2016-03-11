@@ -1,7 +1,7 @@
 
 ![alt text][logo]
  
-[logo]: http://photos1.meetupstatic.com/photos/event/d/0/a/e/600_438293422.jpeg "Digital Crafts"
+[logo]: https://github.com/joecih/DigitalCrafts2016/blob/master/DC-MainLogo.jpg "Digital Crafts"
 
 
 ### *A 16-week immersive boot-camp for coding soldiers!*

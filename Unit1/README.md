@@ -1,7 +1,7 @@
 
 ![alt text][logo]
  
-[logo]: http://www.wkwyatt.com/assets/images/portfolio/dc-logo.png "Digital Crafts"
+[logo]: https://github.com/joecih/DigitalCrafts2016/blob/master/DC-Logo.png "Digital Crafts"
 
 
 #### UNIT 1 ( Week-1 - ? )
