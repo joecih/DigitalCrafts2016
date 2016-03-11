@@ -1,7 +1,7 @@
 
 ![alt text][logo]
  
-[logo]: http://www.digitalcrafts.com/ "Digital Crafts"
+[logo]: http://www.digitalcrafts.com/sites/all/themes/digitalcrafts/images/digitalcrafts-site-logo.png "Digital Crafts"
 
 # Digital Crafts
 
