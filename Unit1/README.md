@@ -8,7 +8,7 @@
 
 
 ## Project / Course Work Descriptions
-* [Bootstap Gallery](https://github.com/joecih/DigitalCrafts2016/tree/master/Unit1/bootstrap-gallery)
+* [Bootstap Gallery](https://github.com/joecih/bootstrap-gallery)
 -- A simple App for requesting images from Pixabay and displaying them in a bootstrap grid pattern. Relatively static site non-deployable at this time but easly copied.
 
 
