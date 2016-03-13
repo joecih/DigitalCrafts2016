@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+}
+
+#backlay {
+    background: url('../images/bw_landscape1.jpg') 50% 50% no-repeat;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    height: 100vh;
+    z-index: -1;
+}
+
+#hide-this {
+    padding-top: 20px;
+    font-size: 25px;
+    color: white;
+}
+
+#overlay {
+    background-color: lightyellow;
+    opacity: 0.5;
+    width: 100%;
+    margin: 0;
+    height: 100vh;
+    z-index: 1;
+}
+
+.container {
+    z-index: 3;
+}
