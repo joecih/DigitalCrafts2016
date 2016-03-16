@@ -8,8 +8,12 @@
 
 
 ## Project / Course Work Descriptions
+----
 * [Bootstap Gallery](https://github.com/joecih/bootstrap-gallery)
 -- A simple App for requesting images from Pixabay and displaying them in a bootstrap grid pattern. Relatively static site non-deployable at this time but easly copied.
+
+* [YouTube Mock-Up](https://github.com/joecih/youtube-mockup)
+-- In-Class wireframe mockup. Team effort [ @joecih, @jciarallij ]
 
 
 
