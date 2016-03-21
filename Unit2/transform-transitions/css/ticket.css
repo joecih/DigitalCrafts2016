@@ -1,0 +1,30 @@
+body {
+    background-color: #000;
+    color: #666;
+    text-align: center;
+}
+
+h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 15px;
+}
+
+#ticket {
+    width: 255px;
+    padding-top: 75px;
+}
+
+.right, .left {
+
+}
+
+.left {
+    width: 76px;
+}
+.right {
+    width: 149px;
+}
+
+img {
+    transform: skewX(10deg);
+}

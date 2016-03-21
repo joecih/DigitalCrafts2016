@@ -129,6 +129,29 @@ function saveConfiguration() {
     updatePlayer2();
 }
 
+var onresize = window.addEventListener("resize", function() {
+    //console.log(window.innerWidth + " | " + window.innerHeight);
+    var _windowWidth = window.innerWidth;
+    
+    if (_windowWidth <= 855 ) {
+        $(".center").css("width", window.innerWidth);
+    } else {
+        $(".center").css("width", "600px");
+        //$("#row-1,#row-2,#row-3").css("height", "146px");
+    }
+    
+    console.log($(".center").css("height"));
+    
+});
+
+
+$(document).ready(function() {
+    //$(".center").css("width", "800px");
+});
+
+
+
+
 // function updateAppConfigObject(_name, _value) {
 //     try {
 //         for ( var key in configApp ) {
