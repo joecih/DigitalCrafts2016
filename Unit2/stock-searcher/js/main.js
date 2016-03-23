@@ -1,51 +1,52 @@
 $(document).ready(function() {
 
 
-    var _dataArray = [];
-    var _ticker = "aa,abt,abb";
+    var _ticker = "AAN,AAP,AAT,AAV,AB,ABB,ABBV,ABC,ABEV,ABG,ABM,ABR,ABR-A,ABR-B,ABR-C,ABRN,ABT,ABX,AC,ACC,ACCO,ACG,ACH,ACM,ACN,ACP,ACRE,ACV,ACW,ADC,ADM,ADPT,ADS,ADT,ADX";
     var _myTimer;
-    var _url = "";
-
+    var _table;
 
 
     $('#ticker-search').submit(function() {
 
-    console.log(_ticker);
-        var _symbolVal = $('#symbol').val();
+        var _symbolVal = "" + $('#symbol').val();
         _ticker = (_symbolVal != '') ? _symbolVal : _ticker;
 
-        _url = 'http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20("' + _ticker.trim() + '")%0A%09%09&env=http%3A%2F%2Fdatatables.org%2Falltables.env&format=json';
 
-        clearTimeout(_myTimer);
-        callJSON(_url);
+        _url = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20('" + _ticker + "')%0A%09%09&env=http%3A%2F%2Fdatatables.org%2Falltables.env&format=json";
 
-        function callJSON(_params) {
-            $.getJSON(_params, function(_data) {
+        //clearTimeout(_myTimer);
 
-                var _newHTML = "";
-                var _stockInfo = _data.query.results.quote;
-
-                if (_data.query.count > 1) {
-                    for (i = 0; i < _data.query.count; i++) {
-                        _newHTML += updateTable(_stockInfo[i]);
-                    }
-
-                    // if ( _data.query.count == 2 ) { console.log(_stockInfo); }
-                } else {
-                    _newHTML = updateTable(_stockInfo);
-                }
-
-                $('#ticker-body').html(_newHTML).trigger('footable_redraw');
-
-                // _myTimer = setTimeout(function() {
-                //     callJSON(_url);
-                // }, 2000);
-
-            });
-        }
+        _table = $('#data-table').DataTable({
+            "ajax": {
+                "url": _url, // _url is my own style of local variable naming. your path would go here.
+                "dataSrc": "query.results.quote"
+            },
+            columns: [{
+                "data": "Name"
+            }, {
+                "data": "Symbol"
+            }, {
+                "data": "Ask"
+            }, {
+                "data": "Change"
+            }, {
+                "data": "DaysHigh"
+            }],
+            "destroy": true
+                // 'destroy' is needed to render the table on each input string passed to the table.
+        });
 
         event.preventDefault();
+
+        // Set interval to reload the ajax for _table, this is Sugar on top :)
+        window.setInterval(function() {
+            _table.ajax.reload(null, false); // user paging is not reset on reload
+        }, 2000);
     });
+
+
+
+
 
     function updateTable(_loopItems) {
         var _html = '<tr>';
@@ -59,13 +60,15 @@ $(document).ready(function() {
         return _html;
     }
 
-    $('.footable').footable({
-        breakpoints: {
-            tiny: 100,
-            medium: 555,
-            big: 2048
-        }
-    });
+    // $('.footable').footable({
+    //     breakpoints: {
+    //         tiny: 100,
+    //         medium: 555,
+    //         big: 2048
+    //     }
+    // });
+
+
 
 });
 
